@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Login Page";
+}
+
+@model User
+
+<div class="text-center">
+    <h1>Welcome! Tell us a little about yourself before we get started.</h1>
+    @* corrección asp.action="MakeUser" a "CreateUser" *@
+    <form asp-action="CreateUser" asp-controller="Home" method="POST" class="col-4 mx-auto p-4">
+        <div class="mb-3">
+            @* correcion for="Name" a asp-for="Name"*@
+            <label asp-for="Name">Cual es tu nombre?</label>
+            <input asp-for="Name" class="form-control">
+            @* agregamos el <span> para mostrar el mensaje de error de la validación *@
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div class="mb-3">
+            @* correcion for="Location" a asp-for="Location"*@
+            <label asp-for="Location">(Optional) De donde eres</label>
+            <input asp-for="Location" class="form-control">
+        </div>
+        <div class="mb-3">
+            @* cambio de input a button *@
+            <button class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
